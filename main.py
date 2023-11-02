@@ -2,6 +2,19 @@ import os
 from random import randrange
 from random import choice
 
+print('Добро пожаловать в игру "Морской бой, корабли расставляются в формате:'
+      'Буква по вертикали, цифра по горизонтали и положение'
+      'V - вертикально и H горизонтально. Ввод осуществляется на латинской раскладке')
+
+auto_ship = input('Хотите расставить корабли автоматически? Д/Н  ')
+if auto_ship == 'Д' or 'д':
+    auto_ship = True
+
+if auto_ship == 'н' or'Н':
+    auto_ship=False
+
+settings_ship = auto_ship
+
 
 class FieldPart(object):
     main = 'map'
@@ -410,7 +423,7 @@ class Ship:
 
 if __name__ == '__main__':
     players = []
-    players.append(Player(name='Username', is_ai=False, auto_ship=False, skill=1))
+    players.append(Player(name='Username', is_ai=False, auto_ship=settings_ship, skill=1))
     players.append(Player(name='IQ180', is_ai=True, auto_ship=True, skill=1))
 
     game = Game()
